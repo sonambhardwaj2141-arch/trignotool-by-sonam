@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TrignoTool by Sonam</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="intro-screen">
+    <h1>🌈 TrignoTool by Sonam</h1>
+    <p>A creative tool to calculate Height & Distance using Trigonometry</p>
+    <p><b>Developed by:</b> Sonam Sharma<br>For Teacher Festival Competition 2025</p>
+    <button onclick="startApp()">Start Now</button>
+  </div>
+
+  <div id="calculator" style="display:none;">
+    <h2>Height and Distance Calculator</h2>
+    <label>Enter Height (m):</label><input id="height" type="number"><br><br>
+    <label>Enter Distance (m):</label><input id="distance" type="number"><br><br>
+    <button onclick="findAngle()">Find Angle</button>
+    <h3 id="result"></h3>
+  </div>
+
+  <script>
+    function startApp(){
+      document.getElementById('intro-screen').style.display='none';
+      document.getElementById('calculator').style.display='block';
+    }
+    function findAngle(){
+      let h = parseFloat(document.getElementById('height').value);
+      let d = parseFloat(document.getElementById('distance').value);
+      if(!h || !d){alert('Please enter both values'); return;}
+      let angle = Math.atan(h/d) * (180/Math.PI);
+      document.getElementById('result').innerHTML = "Angle of Elevation = " + angle.toFixed(2) + "°";
+    }
+  </script>
+</body>
+</html>
